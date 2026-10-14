@@ -10,4 +10,4 @@
 - [x] Ensure the website route manifest describes all page routes and is served as static JSON at `/manus-routes.json`.
 
 ## GitHub source repository
-- [ ] Save the completed project source to the user's GitHub through the managed GitHub connection workflow, preserving the confirmed private-repository and canonical-repository safeguards.
+- [x] Save the completed project source to the user's GitHub through the managed GitHub connection workflow, preserving the confirmed private-repository and canonical-repository safeguards.
