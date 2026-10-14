@@ -10,4 +10,9 @@
 - [x] Ensure the website route manifest describes all page routes and is served as static JSON at `/manus-routes.json`.
 
 ## GitHub source repository
-- [x] Save the completed project source to the user's GitHub through the managed GitHub connection workflow, preserving the confirmed private-repository and canonical-repository safeguards.
+- [x] Save the completed project source to the user's GitHub through the managed GitHub connection workflow, honoring the confirmed repository owner, canonical repository switch, and the user's latest visibility choice.
+
+## GitHub Pages hosting
+- [ ] Publish the website publicly at `https://alax0915.github.io/shapegrid-studio/` from the `main` branch's `/docs` folder, with the repository public as explicitly approved.
+- [ ] Configure the Vite production base and all public logo/runtime asset references to work beneath `/shapegrid-studio/`, while keeping local development at the root path.
+- [ ] Provide a repeatable `pnpm build:pages` command that builds the static site, refreshes the generated `docs/` files, and includes `.nojekyll` for branch-based Pages publishing.

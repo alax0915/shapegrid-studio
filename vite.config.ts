@@ -149,9 +149,9 @@ function vitePluginManusDebugCollector(): Plugin {
   };
 }
 
-// Static development and static publishing use the same public-value whitelist
-// as Express. Runtime-only secrets never enter the browser bundle. Express keeps
-// serving this path dynamically when the application server is selected.
+// Manus static builds use the same public-value whitelist as Express. GitHub
+// Pages runs outside Manus, so its public artifact receives an empty config.
+// Runtime-only secrets never enter the browser bundle.
 function vitePluginPublicPlatformConfig(): Plugin {
   return {
     name: "manus-public-platform-config",
@@ -163,7 +163,8 @@ function vitePluginPublicPlatformConfig(): Plugin {
       });
     },
     generateBundle() {
-      this.emitFile({ type: "asset", fileName: "api/platform/config.js", source: publicPlatformScript() });
+      const source = process.env.GITHUB_PAGES === "true" ? "window.__MANUS_CONFIG__={};" : publicPlatformScript();
+      this.emitFile({ type: "asset", fileName: "api/platform/config.js", source });
     },
   };
 }
@@ -171,6 +172,7 @@ function vitePluginPublicPlatformConfig(): Plugin {
 const plugins = [vitePluginPublicPlatformConfig(), react(), tailwindcss(), jsxLocPlugin(), vitePluginManusDebugCollector()];
 
 export default defineConfig({
+  base: process.env.GITHUB_PAGES === "true" ? "/shapegrid-studio/" : "/",
   plugins,
   resolve: {
     alias: {

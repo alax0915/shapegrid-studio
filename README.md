@@ -1,14 +1,31 @@
 # ShapeGrid Studio
 
-React / Express / tRPC / Drizzle starter, adapted from the Sandbox web-db-user template.
+An interactive React + Vite playground for the supplied ShapeGrid canvas component.
 
-- `pnpm dev`: development server; honors `PORT` (default 3000).
-- `pnpm build` / `pnpm start`: build and serve `dist/index.js` and `dist/public/`.
-- `pnpm db:migrate`: apply checked-in migrations. `pnpm db:push`: generate and apply new schema changes.
-- `pnpm check` / `pnpm test`: types and application tests.
+## Local development
 
-Start with the Webdev skill's default-template guide. Platform login, storage, payments and service contracts live in its shared references; read the relevant capability before extending its helper.
+- `pnpm install` — install dependencies.
+- `pnpm dev:static` — run the preview at `http://localhost:3000`.
+- `pnpm check` — run the TypeScript check.
+- `pnpm build:static` — build the static site for root-path preview/hosting.
 
-`server/_core/publicConfig.ts` exposes only named public runtime values. Private keys stay server-side. The platform serves managed `/manus-storage/` assets; the application does not register a second proxy.
+## GitHub Pages
 
-Platform configuration is readable and editable through `webdev.config`. Default settings are initial values, not enforced constraints. The agent may modify the files, commands and configuration or follow the flexible guide for another stack.
+The public site is published at <https://alax0915.github.io/shapegrid-studio/> from the `main` branch's `/docs` folder. The repository and the Pages site are public.
+
+After changing the site source, regenerate the Pages files and push them to `main`:
+
+```bash
+pnpm build:pages
+git add docs
+git commit -m "Update GitHub Pages site"
+git push origin main
+```
+
+The `build:pages` script builds with the `/shapegrid-studio/` base URL, copies the static output into `docs/`, and adds `.nojekyll`. The Pages branch source then deploys the updated files.
+
+## Other project commands
+
+- `pnpm build` / `pnpm start` — build and serve the template's Express application.
+- `pnpm db:migrate` / `pnpm db:push` — database migration commands.
+- `pnpm test` — run the application tests.

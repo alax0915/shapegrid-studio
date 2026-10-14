@@ -140,7 +140,7 @@ export default function Home() {
     <main className="studio-page">
       <header className="topbar page-width">
         <a className="brand" href="#top" aria-label="ShapeGrid Studio home">
-          <img src="/shapegrid-mark.svg" alt="" width="38" height="38" />
+          <img src={`${import.meta.env.BASE_URL}shapegrid-mark.svg`} alt="" width="38" height="38" />
           <span className="brand-word">shapegrid<span className="brand-period">.</span></span>
         </a>
         <nav className="main-nav" aria-label="Main navigation">
@@ -270,7 +270,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="site-footer page-width"><a className="brand footer-brand" href="#top"><img src="/shapegrid-mark.svg" alt="" width="30" height="30" /><span className="brand-word">shapegrid<span className="brand-period">.</span></span></a><span className="footer-note">BUILT FOR THE SPACE BETWEEN STATES.</span><a className="footer-link" href="https://reactbits.dev" target="_blank" rel="noreferrer">Inspired by React Bits <ArrowUpRight size={13} /></a></footer>
+      <footer className="site-footer page-width"><a className="brand footer-brand" href="#top"><img src={`${import.meta.env.BASE_URL}shapegrid-mark.svg`} alt="" width="30" height="30" /><span className="brand-word">shapegrid<span className="brand-period">.</span></span></a><span className="footer-note">BUILT FOR THE SPACE BETWEEN STATES.</span><a className="footer-link" href="https://reactbits.dev" target="_blank" rel="noreferrer">Inspired by React Bits <ArrowUpRight size={13} /></a></footer>
     </main>
   );
 }
